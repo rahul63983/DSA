@@ -1,0 +1,30 @@
+class Solution {
+    int m=0;
+    public int addDigits(int num) {
+        if(num%10==num)
+        {
+            return num;
+        }
+        int a=sum(num);
+        if(a%10==a)
+         {
+             return a;
+         }
+        int b= addDigits(a);
+        return b;
+    }
+        private int sum(int n)
+        {
+            int p=0;
+            m=0;
+            while(n>0)
+            {
+                p=n%10;
+                m=m+p;
+                n=n/10;
+            }
+            return m;
+
+        }
+
+}
