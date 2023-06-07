@@ -1,0 +1,26 @@
+class Solution {
+    public int[] countBits(int n) {
+        int [] arr=new int [n+1];
+        for(int j=0;j<n+1;j++)
+        {
+            arr[j]=sum(j);
+        }
+        return arr;
+    }
+
+        private int sum(int n)
+        {
+            int s=0;
+            while(n>0)
+            {
+                int p=n%2;
+                n=n/2;
+                s=s+p;
+
+            }
+            return s;
+
+        }
+        
+    
+}
