@@ -1,0 +1,31 @@
+class Solution {
+    public List<Integer> luckyNumbers (int[][] matrix) {
+        ArrayList<Integer> common=new ArrayList<Integer>();
+        int r=matrix.length;
+        int c=matrix[0].length;
+        for(int i=0;i<r;i++)
+        {
+            int min=matrix[i][0];
+            int p=0;
+            for(int j=0;j<c;j++)
+            {
+                if(min>matrix[i][j])
+                {
+                    min=matrix[i][j];
+                    p=j;
+                }
+                
+            }
+            int max=matrix[0][p];
+            for(int k=0;k<r;k++)
+            {
+                if(max<matrix[k][p])
+                    max=matrix[k][p];
+                
+             }
+             if(max==min)
+                common.add(max);
+        }
+        return common;
+    }
+}
