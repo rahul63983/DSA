@@ -1,0 +1,34 @@
+class Solution {
+    public int[] separateDigits(int[] nums) {
+        ArrayList<Integer> R=new ArrayList<>();
+        int b[]=new int [10];
+        int j=0;
+        for(int i=0;i<nums.length;i++)
+        {
+            int a=nums[i];
+            int p=0;
+            while(a>0)
+            {
+                b[p]=a%10;
+                p++;
+                a /=10;
+            }
+            p--;
+            while(p>=0)
+            {
+                R.add(b[p]);
+                p--;
+                
+            }
+           
+        }
+         int n=R.size();
+            int re []=new int [n];
+            for(int i=0;i<n;i++)
+            {
+                re[i]=R.get(i);
+            }
+            return re;
+        
+    }
+}
