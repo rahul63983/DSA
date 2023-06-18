@@ -1,0 +1,29 @@
+class Solution {
+    public int[] createTargetArray(int[] nums, int[] index) {
+     int n=nums.length;
+      int crt[]=new int [n];
+      for(int i=0;i<n;i++)
+      {
+          crt[i]=-10;
+      }  
+      for(int i=0;i<n;i++)
+      {
+          int a=nums[i];
+          int b=index[i];
+          if(crt[b]==-10)
+                crt[b]=a;
+        else{
+            int j=n-1;
+            while(j>b)
+            {
+                crt[j]=crt[j-1];
+                j--;
+            }
+            crt[b]=a;
+
+        }
+
+      }
+      return crt;
+    }
+}
