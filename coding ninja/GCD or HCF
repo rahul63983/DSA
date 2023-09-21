@@ -1,0 +1,27 @@
+public class Solution {
+    public static int calcGCD(int n, int m){
+        // Write your code here.
+        // int c=1;
+        // int i=Integer.min(n, m);
+        // while(i>0){
+        //     if((m%i)==0&&(n%i)==0){
+        //         return i;
+        //     }
+        //     else{
+        //         i=i-1;
+        //     }
+        // }
+        // return c;
+        if(n<m){
+            int t=m;
+            m=n;
+            n=t;
+        }
+        while(n%m!=0){
+            int d=n-m;
+            n=Math.max(m, d);
+            m=Math.min(m, d);
+        }
+        return m;
+    }
+}
