@@ -1,0 +1,104 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode l3=null;
+        int sum=0;
+        int carry=0;
+        while(l1!=null&&l2!=null){
+            ListNode nl=new ListNode();
+            sum=l1.val+l2.val+carry;
+           if(sum>9){
+                nl.val=sum%10;
+                carry=sum/10;
+            }
+            else{
+                nl.val=sum;
+                carry=0;
+            }
+            nl.next=null;
+            if(l3==null){
+                l3=nl;
+            }
+            else{
+            ListNode last=l3;
+             while(last.next!=null)
+                {
+                  last=last.next;
+               }
+              last.next=nl;
+            }
+
+           l1=l1.next; 
+            l2=l2.next; 
+        }
+        while(l1!=null){
+            sum=l1.val+carry;
+             ListNode nl=new ListNode();
+            if(sum>9){
+                nl.val=sum%10;
+                carry=sum/10;
+            }
+            else{
+                nl.val=sum;
+                carry=0;
+            }
+            nl.next=null;
+            ListNode last=l3;
+             while(last.next!=null)
+                {
+                  last=last.next;
+               }
+              last.next=nl;
+            
+
+           l1=l1.next; 
+
+        }
+        while(l2!=null)
+         {
+            sum=l2.val+carry;
+             ListNode nl=new ListNode();
+            if(sum>9){
+                nl.val=sum%10;
+                carry=sum/10;
+            }
+            else{
+                nl.val=sum;
+                carry=0;
+            }
+            nl.next=null;
+            ListNode last=l3;
+             while(last.next!=null)
+                {
+                  last=last.next;
+               }
+              last.next=nl;
+            
+
+           l2=l2.next; 
+
+        }
+        if(carry!=0)
+        {
+            ListNode nl=new ListNode();
+            nl.val=carry;
+            nl.next=null;
+            ListNode node=l3;
+            while(node.next!=null){
+                node=node.next;
+            }
+            node.next=nl;
+        }
+        return l3;
+        
+    }
+}
