@@ -1,0 +1,60 @@
+class Solution {
+    public boolean validPalindrome(String s) {
+        int p=0,r=s.length()-1;
+       // int flage=0;
+        if(s.length()<=2)
+        {
+            return true;
+        }
+        while(p<r){
+            if(s.charAt(p)==s.charAt(r)){
+                p++;
+                r--;
+               // flage=1;
+            }
+            else{
+                //flage=0;
+                if(checking(s,p,r)){
+                    return true;
+                }
+                return false;
+
+            }
+        }
+        return true;
+
+        
+    }
+    private boolean checking(String s,int p,int r){
+        int p1,r1=r;
+        p1=p+1;
+        int flage=1,flage1=1;
+        while(p1<r){
+            if(s.charAt(p1)!=s.charAt(r)){
+                flage=0;
+                break;
+
+            }
+            p1++;
+            r--;
+
+        }
+            r1=r1-1;
+        while(p<r1){
+             if(s.charAt(p)!=s.charAt(r1)){
+                flage1=0;
+                break;
+
+            }
+            p++;
+            r1--;
+
+        }
+        if(flage+flage1>0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
